@@ -2504,8 +2504,8 @@ hook('normalize', function(normalize) {
           var defaultExtension = '';
           if (!pkg.meta || !pkg.meta[normalized.substr(pkgName.length + 1)]) {
             // apply defaultExtension
-            if (pkg.defaultExtension) {
-              if (normalized.split('/').pop().indexOf('.') == -1)
+            if (defaultExtension in pkg) {
+              if (pkg.defaultExtension && normalized.split('/').pop().indexOf('.') == -1)
                 defaultExtension = '.' + pkg.defaultExtension;
             }
             // apply defaultJSExtensions if defaultExtension not set
